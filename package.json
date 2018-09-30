@@ -1,0 +1,25 @@
+{
+  "name": "donation-kiosk",
+  "version": "1.0.0",
+  "description": "kiosk for donations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nfc",
+    "authorize.net"
+  ],
+  "author": "ptarsoly",
+  "license": "ISC",
+  "dependencies": {
+    "authorizenet": "^1.0.5",
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "node-hid": "^0.7.3",
+    "node-hid-stream": "0.0.3",
+    "serialport": "^7.0.2",
+    "underscore": "^1.9.1"
+  }
+}

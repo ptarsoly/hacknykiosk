@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function getNewData() {
+            const initText = "Press # to take a photo of your skin rash";
+            $.get("http://172.29.214.37:3001/data", function (data, status) {
+                if(data == "#" && document.getElementById("value").innerHTML == initText) {
+                    $.get("http://172.29.214.37:3001/rash", function (rashData, rashStatus) {
+                        let responseTxt;
+                        if(rashData.results == "likely") {
+                            document.getElementById("value").innerHTML = "It is likely that you have a condition. If you would like a professional to look at it, press #";
+                            $.get("http://172.29.214.37:3001/prof", function(profData, profStatus){
+                                
+                            });
+                        }
+                        else {
+                            responseTxt = "It is unlikely that you have a condition. Thank you for visiting!";
+                        }
+                        document.getElementById("value").innerHTML = responseTxt;
+                    });
+                }
+                //console.log(status);
+            });
+        }
+        setInterval(getNewData,500);
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>Skin Kiosk</h1>
+        <div id="value">Press # to take a photo of your skin rash</div>
+    </center>
+</body>
+
+</html>
